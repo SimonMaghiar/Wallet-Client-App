@@ -1,0 +1,16 @@
+{
+  "name": "Interface",
+  "version": "1.0.0",
+  "description": "",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron ."
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "electron": "^31.0.0",
+    "electron-reload": "^2.0.0-alpha.1"
+  }
+}

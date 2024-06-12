@@ -1,0 +1,25 @@
+<body>
+  <div class="overview_container">
+      <div class="overview_wallet_container">
+        <p class="overview_title">Wallet</p>
+            <div style="display: flex">
+                <div style="display: flex; flex-direction: column">
+                    <div class="item">Balance:</div>
+                    <div class="item">Unconfirmed:</div>
+                    <div class="item">Number of transactions:</div>
+                </div>
+                <div style="display: flex; flex-direction: column">
+                    <div class="item" id="confirmed_balance">Loading...</div>
+                    <div class="item" id="unconfirmed_balance">0.00 BTC</div>
+                    <div class="item">0</div>
+                </div>
+            </div>
+      </div>
+      <div class="overview_transactions_container">
+        <p>Recent Transactions</p>
+        <div class="overview_transactions_inner_container" id="recent_transactions">
+
+        </div>
+      </div>
+  </div>
+</body>
