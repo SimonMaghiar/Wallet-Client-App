@@ -9,27 +9,42 @@
   <link rel="stylesheet" type="text/css" href="./pages/receive/receive.css">
   <link rel="stylesheet" type="text/css" href="./pages/send/send.css">
   <link rel="stylesheet" type="text/css" href="./pages/transactions/transactions.css">
+  <link rel="stylesheet" type="text/css" href="./login/import/import_wallet.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
 </head>
 
 <body>
-  <div class="button-container">
-    <button id="overview"><i class="fas fa-home"></i> Overview</button>
-    <button id="send"><i class="fas fa-paper-plane"></i> Send</button>
-    <button id="receive"><i class="fas fa-download"></i> Receive</button>
-    <button id="transactions"><i class="fas fa-history"></i> Transactions</button>
+  <div id="login-form">
+    <p>Login</p>
+    <div class="button-container">
+        <button class="btn" id="import-btn">Import Wallet</button>
+        <button class="btn" id="create-btn">Create Wallet</button>
+    </div>
 </div>
-  <hr>
-  <div id="content-container">
+<div id="login-container">
     <!-- Dynamic content will go here -->
-  </div>
-  <div class="bottom">
-    <p style="margin-left: 10px; margin-right: 20px;">Synchronising with the network...</p>
-    <div class="loading-bar-full">
-      <div class="loading-bar"></div>
+</div>
+  <div id="main-content" style="display: none;">
+    <div class="button-container">
+      <button id="overview"><i class="fas fa-home"></i> Overview</button>
+      <button id="send"><i class="fas fa-paper-plane"></i> Send</button>
+      <button id="receive"><i class="fas fa-download"></i> Receive</button>
+      <button id="transactions"><i class="fas fa-history"></i> Transactions</button>
+    </div>
+    <hr>
+    <div id="content-container">
+      <!-- Dynamic content will go here -->
+    </div>
+    <div class="bottom">
+      <p style="margin-left: 10px; margin-right: 20px;">Synchronising with the network...</p>
+      <div class="loading-bar-full">
+        <div class="loading-bar"></div>
+      </div>
     </div>
   </div>
 </body>
 <script src="renderer.js"></script>
-
+<script src="login.js"></script>
+<script src="login/create/create_wallet.js"></script>
+<script src="login/import/import_wallet.js"></script>
 </html>

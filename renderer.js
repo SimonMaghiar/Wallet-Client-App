@@ -2,33 +2,34 @@ const { ipcRenderer } = require('electron');
 
 // Get reference to the content container
 const contentContainer = document.getElementById('content-container');
+const loginContainer = document.getElementById('login-container');
 
-async function loadHTMLContent (filename) {
+async function loadHTMLContent (domElement, filename) {
   try {
     const response = await fetch(filename);
     const html = await response.text();
-    contentContainer.innerHTML = html;
+    domElement.innerHTML = html;
   } catch (error) {
     console.error('Error fetching HTML:', error);
   }
 }
 
 document.getElementById('overview').addEventListener('click', async () => {
-  await loadHTMLContent('pages/overview/overview.html');
+  await loadHTMLContent(contentContainer, 'pages/overview/overview.html');
   ipcRenderer.send('get-user-balance', 'some-argument');
   ipcRenderer.send('get-recent-transactions', 'some-argument');
 });
 
 document.getElementById('send').addEventListener('click', () => {
-  loadHTMLContent('pages/send/send.html');
+  loadHTMLContent(contentContainer, 'pages/send/send.html');
 });
 
 document.getElementById('receive').addEventListener('click', () => {
-  loadHTMLContent('pages/receive/receive.html');
+  loadHTMLContent(contentContainer, 'pages/receive/receive.html');
 });
 
 document.getElementById('transactions').addEventListener('click', () => {
-  loadHTMLContent('pages/transactions/transactions.html');
+  loadHTMLContent(contentContainer, 'pages/transactions/transactions.html');
 });
 
 ipcRenderer.on('user-balance-response', (event, balance) => {
@@ -52,3 +53,22 @@ ipcRenderer.on('get-recent-transactions', (event, transactions) => {
 const loadingBar = document.querySelector('.loading-bar');
 loadingBar.style.width = `${150}px`;
 loadingBar.classList.add('progress');
+
+// Get buttons by their IDs
+const importBtn = document.getElementById('import-btn');
+const createBtn = document.getElementById('create-btn');
+
+// Add event listeners to handle focus class toggling
+importBtn.addEventListener('click', () => {
+  // Remove focus class from all buttons
+  importBtn.classList.add('focus');
+  createBtn.classList.remove('focus');
+  loadHTMLContent(loginContainer, 'login/import/import_wallet.html');
+});
+
+createBtn.addEventListener('click', () => {
+  // Remove focus class from all buttons
+  createBtn.classList.add('focus');
+  importBtn.classList.remove('focus');
+  loadHTMLContent(loginContainer, 'login/create/create_wallet.html');
+});

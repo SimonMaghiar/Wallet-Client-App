@@ -12,6 +12,12 @@ body {
   font-weight: bold;
 }
 
+body {
+  background-image: url('./assets/background.jpg');
+  background-size: cover; /* Adjust as needed */
+  background-position: center; /* Adjust as needed */
+}
+
 .button-container {
   display: flex;
   flex-direction: row;
@@ -35,7 +41,7 @@ body {
 }
 
 /* Style for focused button */
-.button-container button:focus {
+.button-container button.focus {
   border: 2px solid #000000; /* Example border color */
   border-radius: 5px; /* Example border radius */
 }
@@ -67,4 +73,36 @@ body {
   height: 20px; /* Adjust as needed */
   background-color: #ccc; /* Background color of the loading bar */
   border-radius: 5px;
+}
+
+#login-form {
+  text-align: center; /* Aligns content inside the form to the center */
+  padding: 20px;
+  border-bottom: 1px solid #093005;
+}
+
+#login-form p {
+  font-size: 1.5em; /* Adjust font size as needed */
+  margin-bottom: 20px; /* Adds space between "Login" heading and buttons */
+}
+
+#login-form .button-container {
+  display: flex;
+  justify-content: center;
+}
+
+#login-form button {
+  margin: 0 10px; /* Adjust space between buttons */
+  padding: 10px 20px; /* Adjust button padding */
+  font-size: 1em; /* Adjust button font size */
+  cursor: pointer;
+}
+.btn {
+  border: 1px solid #ccc;
+}
+
+#login-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 50px;
 }

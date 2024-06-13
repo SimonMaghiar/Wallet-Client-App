@@ -7,6 +7,8 @@ const pathsToWatch = [
   path.join(__dirname, 'pages', 'receive', '*'),
   path.join(__dirname, 'pages', 'send', '*'),
   path.join(__dirname, 'pages', 'transactions', '*'),
+  path.join(__dirname, 'login', 'import', '*'),
+  path.join(__dirname, 'login', 'create', '*'),
   path.join(__dirname, '*')
 ];
 

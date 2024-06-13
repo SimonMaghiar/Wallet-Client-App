@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create Wallet</title>
+    <style>
+        .container {
+            width: 400px;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            background-color: #fff;
+            text-align: center;
+        }
+        .message {
+            margin-top: 10px;
+            font-size: 14px;
+            color: #333;
+        }
+        .public-key {
+            margin-top: 20px;
+            font-size: 16px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Generate Wallet</h2>
+        <div class="form-group">
+            <button onclick="generateWallet()">Generate Wallet</button>
+        </div>
+        <div id="public-key" class="public-key"></div>
+        <div id="recovery-phrase" class="message"></div>
+        <div id="message" class="message"></div>
+    </div>
+
+    <script>
+        function generateWallet() {
+            // Simulate generating wallet
+            const publicKey = generatePublicKey();
+            const recoveryPhrase = generateRecoveryPhrase();
+
+            // Display public key
+            document.getElementById('public-key').textContent = `Public Address: ${publicKey}`;
+
+            // Display recovery phrase (if applicable)
+            if (recoveryPhrase) {
+                document.getElementById('recovery-phrase').textContent = `Recovery Phrase: ${recoveryPhrase}`;
+            }
+
+            // Display success message
+            showMessage('Wallet generated successfully!', 'success');
+        }
+
+        function generatePublicKey() {
+            // Simulate generating public key (replace with actual logic)
+            return '0x1234567890abcdef';
+        }
+
+        function generateRecoveryPhrase() {
+            // Simulate generating recovery phrase (replace with actual logic)
+            return 'word1 word2 word3 ... word12';
+        }
+
+        function showMessage(message, type) {
+            const messageElement = document.getElementById('message');
+            messageElement.textContent = message;
+            messageElement.className = `message ${type}`;
+        }
+    </script>
+</body>
+</html>
