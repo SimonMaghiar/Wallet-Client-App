@@ -13,16 +13,10 @@ function importWallet () {
     return;
   }
 
-  // Process the recovery phrase (You would typically handle this securely)
-  showMessage(`Importing wallet with recovery phrase: ${recoveryPhrase}`, 'success');
-  // Here you would proceed to derive the private keys and set up the wallet
+  showMessage('Importing wallet...', 'notice');
 
-  // Simulating a delay (remove this in actual implementation)
-  setTimeout(() => {
-    showMessage('Wallet imported successfully!', 'success');
-    // Reset the input field after successful import
-    document.getElementById('recovery-phrase').value = '';
-  }, 2000);
+  // Send the recovery phrase to the main process via IPC
+  ipcRenderer.send('import-wallet', recoveryPhrase);
 }
 
 function showMessage (message, type) {
@@ -30,3 +24,30 @@ function showMessage (message, type) {
   messageElement.textContent = message;
   messageElement.className = `message ${type}`;
 }
+
+ipcRenderer.on('import-wallet', (event, reply) => {
+  console.log(reply);
+  if (reply.error) {
+    showMessage(reply.error, 'error');
+    return;
+  }
+  if (reply.isPhraseInvalid) {
+    showMessage('Invalid recovery phrase. Checksum failed.', 'error');
+  } else {
+    // Simulating a delay (remove this in actual implementation)
+    setTimeout(() => {
+      showMessage('Wallet imported successfully!', 'success');
+      // Reset the input field after successful import
+      document.getElementById('recovery-phrase').value = '';
+      setTimeout(() => {
+        const loginContainer1 = document.getElementById('login-container');
+        const loginContainer2 = document.getElementById('login-form');
+        loginContainer1.style.display = 'none';
+        loginContainer2.style.display = 'none';
+        // Show the main content
+        const mainContent = document.getElementById('main-content');
+        mainContent.style.display = 'block'; // or 'flex', 'grid', etc. based on your layout
+      }, 500);
+    }, 2000);
+  }
+});

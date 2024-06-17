@@ -1,0 +1,146 @@
+.wallet-container {
+    z-index: 2;
+    width: 400px;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    background-color: #fff;
+    text-align: center;
+    margin: 0 auto;
+    transition: all 2s ease; /* Smooth transition */
+    position: relative; /* Allow position adjustment */
+    left: 0%; /* Initial position for centering */
+    transform: translateX(0%); /* Initial position for centering */ 
+}
+
+.wallet-generated-container {
+    position: relative;
+    z-index: 1;
+    width: 400px;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    background-color: #fff;
+    margin: 0 auto;
+    margin-top: -355px;
+    transition: all 2s ease; /* Smooth transition */
+    position: relative; /* Allow position adjustment */
+    left: 0%; /* Initial position for centering */
+    transform: translateX(0%); /* Initial position for centering */ 
+}
+
+.wallet-generated-container.expanded {
+    width: 600px; /* New width when expanded */
+}
+
+.wallet-message {
+    margin-top: 10px;
+    font-size: 14px;
+    color: #333;
+}
+.wallet-public-key {
+    margin-top: 20px;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.wallet-form-group {
+    margin-bottom: 20px;
+}
+.wallet-title {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 5px;
+    font-size: 25px;
+    font-family: system-ui;
+    text-align: center !important;
+    color: black !important;
+}
+
+.wallet-form-group input[type="text"] {
+    box-sizing: border-box;
+    width: 100%;
+    max-width: 100%; 
+    padding: 8px; 
+    font-size: 14px; 
+    border: 1px solid #ccc; 
+    border-radius: 4px; 
+}
+
+.wallet-form-group button {
+    width: 100%;
+    color: rgb(0, 0, 0);
+    border: none;
+    padding: 10px 15px;
+    cursor: pointer;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+.wallet-form-group button:hover {
+    background-color: #d9dcdf;
+}
+.wallet-message {
+    margin-top: 10px;
+    font-size: 14px;
+    color: #333;
+}
+.error {
+    color: red;
+}
+
+.notice {
+    color: black;
+}
+
+.success {
+    color: green;
+}
+
+.wallet-explainer {
+    margin-bottom: 50px;
+    margin-top: 50px;
+    font-size: 14px;
+    color: #9e9898;
+}
+
+.wallet-choose-phrase {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-weight: bold;
+    margin-bottom: 20px;
+    color: black !important;
+    font-size: 16px !important;
+}
+
+/* Basic styling for the select element */
+.wallet-select-length {
+    appearance: none; /* Remove default appearance */
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    padding: 8px 12px; /* Padding for better spacing */
+    font-size: 16px; /* Font size */
+    border: 1px solid #ccc; /* Border */
+    border-radius: 4px; /* Rounded corners */
+    background-color: #fff; /* Background color */
+    cursor: pointer; /* Cursor style */
+    outline: none; /* Remove focus outline */
+    color: #524f4f;
+}
+
+.wallet-select-length option {
+    background-color: #fff; /* Background color */
+    color: #333; /* Text color */
+    padding: 8px 12px; /* Padding */
+    color: #524f4f;
+}
+
+.wallet-generated-key {
+    text-align: left !important;
+}
+
+.wallet-create-description-container {
+    text-align: left !important;
+    color: #9e9898;
+    font-size: 14px;
+}

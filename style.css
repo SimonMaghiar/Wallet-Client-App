@@ -9,7 +9,6 @@ body {
   padding-bottom: 100px; /* Adjust as needed to prevent overlap with .bottom */
   box-sizing: border-box;
   background-color: #e6f5e2;
-  font-weight: bold;
 }
 
 body {
@@ -102,7 +101,5 @@ body {
 }
 
 #login-container {
-  display: flex;
-  justify-content: center;
-  margin-top: 50px;
+  margin-top: 50px; */
 }

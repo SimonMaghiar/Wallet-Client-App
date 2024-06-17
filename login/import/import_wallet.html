@@ -1,12 +1,22 @@
 <body>
-    <div class="container">
-        <div class="form-group">
-            <label for="recovery-phrase">Enter your recovery phrase (12 or 24 words):</label>
+    <div class="wallet-container">
+        <div class="wallet-form-group">
+            <label for="wallet-recovery-phrase" class="wallet-title">Access your wallet with your Secret Recovery Phrase</label>
+            <p class="wallet-explainer">
+            Use your Secret Recovery Phrase to restore your Wallet. <br>
+            First, enter the Secret Recovery Phrase that you were given when you created your wallet.</p>
+            <div class="wallet-choose-phrase">
+                <label for="wallet_length">Type your Secret Recovery Phrase</label>
+                <select class="wallet-select-length" id="wallet_length" name="wallet_length">
+                    <option value="12-words">12 words</option>
+                    <option value="24-words">24 words</option>
+                </select>
+            </div>
             <input type="text" id="recovery-phrase" placeholder="Enter recovery phrase">
         </div>
-        <div class="form-group">
+        <div class="wallet-form-group">
             <button onclick="importWallet()">Import Wallet</button>
         </div>
-        <div id="message" class="message"></div>
+        <div id="message" class="wallet-message"></div>
     </div>
 </body>

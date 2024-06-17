@@ -1,18 +1,9 @@
 const { ipcRenderer } = require('electron');
+const { loadHTMLContent } = require('./utils/loader');
 
 // Get reference to the content container
 const contentContainer = document.getElementById('content-container');
 const loginContainer = document.getElementById('login-container');
-
-async function loadHTMLContent (domElement, filename) {
-  try {
-    const response = await fetch(filename);
-    const html = await response.text();
-    domElement.innerHTML = html;
-  } catch (error) {
-    console.error('Error fetching HTML:', error);
-  }
-}
 
 document.getElementById('overview').addEventListener('click', async () => {
   await loadHTMLContent(contentContainer, 'pages/overview/overview.html');

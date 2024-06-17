@@ -1,74 +1,33 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Create Wallet</title>
-    <style>
-        .container {
-            width: 400px;
-            padding: 20px;
-            border: 1px solid #ccc;
-            border-radius: 8px;
-            background-color: #fff;
-            text-align: center;
-        }
-        .message {
-            margin-top: 10px;
-            font-size: 14px;
-            color: #333;
-        }
-        .public-key {
-            margin-top: 20px;
-            font-size: 16px;
-            font-weight: bold;
-        }
-    </style>
-</head>
 <body>
-    <div class="container">
-        <h2>Generate Wallet</h2>
-        <div class="form-group">
+    <div class="wallet-container" id="walletContainer">
+        <div class="wallet-create-description-container">
+            <label for="wallet-recovery-phrase" class="wallet-title">Generate Wallet</label>
+            <h2 style="color: black; text-decoration: underline;">Your Wallet Details:</h2>
+            <p><strong style="color: black;">Public Key:</strong> Safe to share. Use it to receive funds.</p>
+            <p><strong class="important" style="color: black;">Recovery Phrase:</strong> <span class="important">Do not share this with
+                    anyone.</span> It provides full access to your wallet and assets.</p>
+            <h3 style="color: black;">Keep Your Recovery Phrase Safe:</h3>
+            <ul>
+                <li>Write it down and store it securely offline.</li>
+                <li>Do not store it digitally.</li>
+                <li>If lost, you cannot recover your wallet or funds.</li>
+            </ul>
+            <div class="wallet-choose-phrase">
+                <label for="wallet_length">Choose Secret Recovery Phrase Length</label>
+                <select class="wallet-select-length" id="wallet_length" name="wallet_length">
+                    <option value="12-words">12 words</option>
+                    <option value="24-words">24 words</option>
+                </select>
+            </div>
+        </div>
+        <div class="wallet-form-group">
             <button onclick="generateWallet()">Generate Wallet</button>
         </div>
-        <div id="public-key" class="public-key"></div>
-        <div id="recovery-phrase" class="message"></div>
-        <div id="message" class="message"></div>
+        <div class="wallet-generated-keys">
+            <div id="message" class="wallet-generation-message"></div>
+        </div>
     </div>
+    <div class="wallet-generated-container" id="wallet-generated-container" style="display: block;">
 
-    <script>
-        function generateWallet() {
-            // Simulate generating wallet
-            const publicKey = generatePublicKey();
-            const recoveryPhrase = generateRecoveryPhrase();
-
-            // Display public key
-            document.getElementById('public-key').textContent = `Public Address: ${publicKey}`;
-
-            // Display recovery phrase (if applicable)
-            if (recoveryPhrase) {
-                document.getElementById('recovery-phrase').textContent = `Recovery Phrase: ${recoveryPhrase}`;
-            }
-
-            // Display success message
-            showMessage('Wallet generated successfully!', 'success');
-        }
-
-        function generatePublicKey() {
-            // Simulate generating public key (replace with actual logic)
-            return '0x1234567890abcdef';
-        }
-
-        function generateRecoveryPhrase() {
-            // Simulate generating recovery phrase (replace with actual logic)
-            return 'word1 word2 word3 ... word12';
-        }
-
-        function showMessage(message, type) {
-            const messageElement = document.getElementById('message');
-            messageElement.textContent = message;
-            messageElement.className = `message ${type}`;
-        }
-    </script>
+    </div>
 </body>
-</html>
